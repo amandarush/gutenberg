@@ -4,12 +4,13 @@
 import { includes } from 'lodash';
 
 /**
- * Reducer enhancer which transforms the result of the original reducer into an
- * object tracking its own history (past, present, future).
+ * Reducer enhancer for tracking changes to reducer state over time. The
+ * returned reducer will include a new `isDirty` property on the object
+ * reflecting whether the original reference of the reducer has changed.
  *
  * @param  {Function} reducer            Original reducer
  * @param  {?Object}  options            Optional options
- * @param  {?Array}   options.resetTypes Action types upon which to clear past
+ * @param  {?Array}   options.resetTypes Action types upon which to reset dirty
  * @return {Function}                    Enhanced reducer
  */
 export default function dirtyingReducer( reducer, options = {} ) {
