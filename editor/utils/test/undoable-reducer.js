@@ -110,4 +110,12 @@ describe( 'undoableReducer', () => {
 			future: [],
 		} );
 	} );
+
+	it( 'should return same reference if state has not changed', () => {
+		const reducer = undoableReducer( counter );
+		const original = reducer( undefined, {} );
+		const state = reducer( original, {} );
+
+		expect( state ).toBe( original );
+	} );
 } );
