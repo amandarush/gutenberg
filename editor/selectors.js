@@ -180,7 +180,7 @@ export function isEditedPostNew( state ) {
  * @return {Boolean}       Whether unsaved values exist
  */
 export function isEditedPostDirty( state ) {
-	return state.saveState.isDirty || isMetaBoxStateDirty( state );
+	return state.editor.isDirty || isMetaBoxStateDirty( state );
 }
 
 /**
